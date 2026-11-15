@@ -116,9 +116,9 @@
     "bcryptjs": "^3.0.3",
     "compression": "^1.8.2",
     "express": "^5.3.0",
-    "google-auth-library": "^11.3.3",
+    "google-auth-library": "^11.3.4",
     "ioredis": "^6.0.0",
-    "jose": "^6.2.15",
+    "jose": "^6.2.17",
     "linkedom": "^0.18.15",
     "lucide-react": "^1.64.0",
     "nodemailer": "^10.3.1",
@@ -131,7 +131,7 @@
     "ts-fsrs": "^5.4.2",
     "typescript": "~6.0.3",
     "web-push": "^3.6.7",
-    "ws": "^8.22.1",
+    "ws": "^8.22.2",
     "zod": "^4.6.7"
   },
   "devDependencies": {
