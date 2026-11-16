@@ -1,0 +1,50 @@
+dhcb (Đồng Hành Cùng Bạn)
+Copyright (c) 2026 www-donghanhcungban-org
+
+Phạm vi giấy phép
+-----------------
+Mã nguồn, tài liệu và nội dung học do tác giả soạn trong repo này phát hành theo giấy phép MIT
+(xem LICENSE), TRỪ các thành phần bên thứ ba liệt kê dưới đây: chúng giữ giấy phép gốc của chủ
+sở hữu, giấy phép MIT của repo không thay thế hay nới các điều khoản đó.
+
+Thành phần bên thứ ba
+---------------------
+1. data/cefrj/cefrj-vocabulary-profile-1.5.csv
+   The CEFR-J Wordlist Version 1.5. Compiled by Yukio Tono, Tokyo University of Foreign Studies
+   (http://www.cefr-j.org/download.html), lấy qua https://github.com/openlanguageprofiles/olp-en-cefrj.
+   Bản quyền thuộc Tono Laboratory, TUFS; dùng theo điều khoản của CEFR-J (phải ghi nguồn).
+   Chi tiết: data/cefrj/SOURCE.md.
+
+2. data/cefrj/octanove-vocabulary-profile-c1c2-1.0.csv
+   Octanove Vocabulary Profile C1/C2 1.0 — Octanove Labs, giấy phép CC BY-SA 4.0
+   (https://creativecommons.org/licenses/by-sa/4.0/). Bản sửa đổi phát hành lại phải giữ CC BY-SA 4.0.
+   Dữ liệu suy ra từ tệp này trong apps/dhcb/src/data/cefrC1C2Vocab.json cũng chịu điều khoản đó.
+
+3. data/words-cefr-dataset/subset.csv
+   Words CEFR Dataset — Copyright (c) 2024 Belikov Maxim (Maximax67), giấy phép MIT,
+   https://github.com/Maximax67/Words-CEFR-Dataset (bản trích lọc). Chi tiết: data/words-cefr-dataset/SOURCE.md.
+
+4. scripts/assets/fonts/DejaVuSans.ttf, scripts/assets/fonts/DejaVuSans-Bold.ttf
+   DejaVu Fonts — giấy phép Bitstream Vera Fonts / DejaVu (https://dejavu-fonts.github.io/License.html);
+   phần Bitstream Vera: Copyright (c) 2003 Bitstream, Inc. Font được nhúng vào
+   apps/dhcb/public/downloads/500-tu-vung-a1-a2.pdf.
+
+5. .xtemplates/ và .claude/hooks/
+   Khung X-Templates (https://github.com/www-donghanhcungban-org/X-Templates), giấy phép MIT, cùng tác giả;
+   xem NOTICE/LICENSE của repo đó cho thành phần bên thứ ba bên trong khung.
+
+6. Phụ thuộc npm (package.json, package-lock.json) không được chép vào repo; mỗi gói giữ giấy phép
+   riêng khi cài.
+
+Tài liệu tham chiếu không có trong repo
+---------------------------------------
+Sách giáo khoa (thư mục tai-lieu-sgk/) không được commit (.gitignore). docs/research/muc-luc-sgk/
+chỉ ghi cấu trúc chương/bài và tên bài để đối chiếu chương trình, không chép nội dung sách.
+Tên sách và bộ sách là của nhà xuất bản tương ứng.
+
+Nhãn hiệu
+---------
+Techcombank, VietQR, NAPAS 247 (xuất hiện trên ảnh QR docs/assets/donate-vietqr-techcombank.png),
+SePay, Google, Gemini, Cloudflare, Zalo và các tên sản phẩm, dịch vụ khác nhắc đến trong repo là
+nhãn hiệu của chủ sở hữu tương ứng. Repo này không liên kết, không được tài trợ hay xác nhận bởi
+các chủ sở hữu đó.
