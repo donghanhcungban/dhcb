@@ -4,7 +4,7 @@
 //        action="unsubscribe" → xóa subscription
 //        action="send-daily"  → gửi push cho tất cả users (gọi từ cron, cần CRON_SECRET)
 
-import webpush from 'web-push'
+import * as webpush from 'web-push'
 import { getPgPool } from '@dhcb/core-db/pgPool'
 import {
   isAllowedPushEndpoint,

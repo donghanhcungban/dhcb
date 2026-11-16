@@ -1,7 +1,7 @@
 // packages/core-chat/chatPush.ts — Gửi Web Push Notification khi có tin nhắn chat mới
 // cho người dùng đang offline / không mở WebSocket.
 
-import webpush from 'web-push'
+import * as webpush from 'web-push'
 import { getPgPool } from '@dhcb/core-db/pgPool'
 import { isAllowedPushEndpoint } from '@dhcb/core-contracts/pushSubscription'
 import { isOnline } from './redisChat.js'
