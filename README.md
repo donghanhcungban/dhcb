@@ -71,7 +71,7 @@ migration hoặc domain Learning của V2.
 Yêu cầu Node.js 22+ và PostgreSQL disposable/local; không dùng production credentials cho test.
 
 ```bash
-git clone https://github.com/seeker19110/dhcb.git
+git clone https://github.com/www-donghanhcungban-org/dhcb.git
 cd dhcb
 npm install
 cp .env.example .env

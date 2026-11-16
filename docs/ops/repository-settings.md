@@ -9,13 +9,13 @@
 
 ```bash
 # Thiết lập chung + bảo mật
-curl -sS https://api.github.com/repos/seeker19110/dhcb | jq '{visibility, allow_squash_merge,
+curl -sS https://api.github.com/repos/www-donghanhcungban-org/dhcb | jq '{visibility, allow_squash_merge,
   allow_merge_commit, allow_rebase_merge, allow_auto_merge, delete_branch_on_merge,
   squash_merge_commit_title, has_discussions, has_wiki, security_and_analysis}'
 # Luật đang áp lên nhánh main (ruleset + branch protection gộp lại)
-curl -sS https://api.github.com/repos/seeker19110/dhcb/rules/branches/main | jq -c '.[] | {type, parameters}'
+curl -sS https://api.github.com/repos/www-donghanhcungban-org/dhcb/rules/branches/main | jq -c '.[] | {type, parameters}'
 # Kênh báo lỗ hổng riêng tư
-curl -sS https://api.github.com/repos/seeker19110/dhcb/private-vulnerability-reporting
+curl -sS https://api.github.com/repos/www-donghanhcungban-org/dhcb/private-vulnerability-reporting
 ```
 
 ## Giá trị đang áp (kiểm 2026-10-12 bằng đúng các lệnh trên)

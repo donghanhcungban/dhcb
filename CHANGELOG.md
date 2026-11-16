@@ -22,7 +22,7 @@ và dự án tuân theo [Semantic Versioning](https://semver.org/lang/vi/).
 
 ### Changed (Đổi)
 
-- **Mở mã nguồn theo MIT**: thêm `LICENSE` (MIT), `NOTICE` (thành phần bên thứ ba giữ giấy phép gốc, nhãn hiệu), `.github/FUNDING.yml` và mục "Ủng hộ và liên hệ" trong README (`docs/changelog/0704`).
+- **Mở mã nguồn theo MIT**: thêm `LICENSE` (MIT), `NOTICE` (thành phần bên thứ ba giữ giấy phép gốc, nhãn hiệu), `.github/FUNDING.yml` và mục "Ủng hộ và liên hệ" trong README; tham chiếu repo chuyển sang chủ `www-donghanhcungban-org` (`docs/changelog/0704`).
 
 ### Fixed (Sửa)
 

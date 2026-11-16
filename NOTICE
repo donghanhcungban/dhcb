@@ -1,5 +1,5 @@
 dhcb (Đồng Hành Cùng Bạn)
-Copyright (c) 2026 seeker19110
+Copyright (c) 2026 www-donghanhcungban-org
 
 Phạm vi giấy phép
 -----------------
@@ -30,7 +30,7 @@ Thành phần bên thứ ba
    apps/dhcb/public/downloads/500-tu-vung-a1-a2.pdf.
 
 5. .xtemplates/ và .claude/hooks/
-   Khung X-Templates (https://github.com/seeker19110/X-Templates), giấy phép MIT, cùng tác giả;
+   Khung X-Templates (https://github.com/www-donghanhcungban-org/X-Templates), giấy phép MIT, cùng tác giả;
    xem NOTICE/LICENSE của repo đó cho thành phần bên thứ ba bên trong khung.
 
 6. Phụ thuộc npm (package.json, package-lock.json) không được chép vào repo; mỗi gói giữ giấy phép
