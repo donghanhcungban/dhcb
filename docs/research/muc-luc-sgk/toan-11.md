@@ -67,7 +67,7 @@ lôgarit; hoạt động hình học) · Bài tập ôn tập cuối năm — đ
 | #   | Chuyên đề                                                 | Bài                                                                    | Mạch | Nội dung chính                             | Chấm tự động được? |
 | --- | --------------------------------------------------------- | ---------------------------------------------------------------------- | ---- | ------------------------------------------ | ------------------ |
 | 1   | CĐ 1. Phép biến hình trong mặt phẳng                      | Bài 1. Phép biến hình                                                  | HINH | khái niệm, ảnh của điểm/hình               | 🟡                 |
-| 2   | CĐ 1                                                      | Bài 2. Phép tịnh tiến                                                  | HINH | `T_v⃗`                                     | ✅                 |
+| 2   | CĐ 1                                                      | Bài 2. Phép tịnh tiến                                                  | HINH | `T_v⃗`                                      | ✅                 |
 | 3   | CĐ 1                                                      | Bài 3. Phép đối xứng trục                                              | HINH | trục đối xứng                              | ✅                 |
 | 4   | CĐ 1                                                      | Bài 4. Phép quay và phép đối xứng tâm                                  | HINH | `Q_(O,α)` · tâm đối xứng                   | ✅                 |
 | 5   | CĐ 1                                                      | Bài 5. Phép dời hình                                                   | HINH | hai hình bằng nhau                         | 🟡                 |
