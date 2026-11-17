@@ -4,11 +4,16 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { notifyOfflinePeers } from './chatPush.js'
 import * as redisChatModule from './redisChat.js'
 import * as pgPoolModule from '@dhcb/core-db/pgPool'
-import webpush from 'web-push'
+import * as webpush from 'web-push'
+
+// web-push 4 là ESM thuần: namespace bất biến, không vi.spyOn trực tiếp được → thay module bằng
+// vi.fn, mỗi ca đặt lại hành vi ở beforeEach (restoreAllMocks không reset vi.fn của factory).
+vi.mock('web-push', () => ({ setVapidDetails: vi.fn(), sendNotification: vi.fn() }))
 
 describe('chatPush: notifyOfflinePeers', () => {
   beforeEach(() => {
     vi.restoreAllMocks()
+    vi.mocked(webpush.sendNotification).mockReset()
   })
 
   it('bỏ qua nếu không có peers hoặc peer rỗng', async () => {
@@ -49,7 +54,7 @@ describe('chatPush: notifyOfflinePeers', () => {
       query: queryMock,
     } as unknown as ReturnType<typeof pgPoolModule.getPgPool>)
 
-    const sendPushMock = vi.spyOn(webpush, 'sendNotification').mockResolvedValue({} as never)
+    const sendPushMock = vi.mocked(webpush.sendNotification).mockResolvedValue({} as never)
 
     const result = await notifyOfflinePeers(['peer-1'], 'sender-1', 'room-1', longMessage)
 
@@ -82,7 +87,7 @@ describe('chatPush: notifyOfflinePeers', () => {
     vi.spyOn(pgPoolModule, 'getPgPool').mockReturnValue({
       query: queryMock,
     } as unknown as ReturnType<typeof pgPoolModule.getPgPool>)
-    const sendPushMock = vi.spyOn(webpush, 'sendNotification').mockResolvedValue({} as never)
+    const sendPushMock = vi.mocked(webpush.sendNotification).mockResolvedValue({} as never)
 
     await notifyOfflinePeers(['peer-1'], 'sender-1', 'room-1', 'chào')
 
@@ -104,7 +109,7 @@ describe('chatPush: notifyOfflinePeers', () => {
     vi.spyOn(pgPoolModule, 'getPgPool').mockReturnValue({
       query: queryMock,
     } as unknown as ReturnType<typeof pgPoolModule.getPgPool>)
-    const sendPushMock = vi.spyOn(webpush, 'sendNotification').mockResolvedValue({} as never)
+    const sendPushMock = vi.mocked(webpush.sendNotification).mockResolvedValue({} as never)
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
     const result = await notifyOfflinePeers(['peer-1'], 'sender-1', 'room-1', 'chào')
@@ -132,7 +137,7 @@ describe('chatPush: notifyOfflinePeers', () => {
     vi.spyOn(pgPoolModule, 'getPgPool').mockReturnValue({
       query: queryMock,
     } as unknown as ReturnType<typeof pgPoolModule.getPgPool>)
-    const sendPushMock = vi.spyOn(webpush, 'sendNotification').mockResolvedValue({} as never)
+    const sendPushMock = vi.mocked(webpush.sendNotification).mockResolvedValue({} as never)
 
     await notifyOfflinePeers(['peer-1'], 'sender-1', 'room-1', 'hi')
 
@@ -200,7 +205,7 @@ describe('chatPush: notifyOfflinePeers', () => {
       query: queryMock,
     } as unknown as ReturnType<typeof pgPoolModule.getPgPool>)
 
-    vi.spyOn(webpush, 'sendNotification').mockImplementation((target: { endpoint: string }) => {
+    vi.mocked(webpush.sendNotification).mockImplementation((target: { endpoint: string }) => {
       if (target.endpoint.includes('410')) {
         return Promise.reject(Object.assign(new Error('Gone'), { statusCode: 410 }))
       }

@@ -9,13 +9,15 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi, beforeAll } from 'vitest'
 
+// web-push 4 là ESM thuần, chỉ có export có tên (không còn default).
 vi.mock('web-push', () => ({
-  default: { setVapidDetails: vi.fn(), sendNotification: vi.fn(async () => undefined) },
+  setVapidDetails: vi.fn(),
+  sendNotification: vi.fn(async () => undefined),
 }))
 vi.mock('@dhcb/core-db/pgPool', () => ({ getPgPool: vi.fn() }))
 
 import { getPgPool } from '@dhcb/core-db/pgPool'
-import webpush from 'web-push'
+import * as webpush from 'web-push'
 
 const mockedGetPool = vi.mocked(getPgPool)
 const mockedSend = vi.mocked(webpush.sendNotification)
