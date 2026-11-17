@@ -45,7 +45,7 @@ fi
 
 echo "── [2/6] Ép code KHỚP origin/$BRANCH (gồm mọi PR đã merge) ──"
 if [ -n "${GITHUB_TOKEN:-}" ]; then
-  REPO_NAME="${GITHUB_REPOSITORY:-seeker19110/dhcb}"
+  REPO_NAME="${GITHUB_REPOSITORY:-www-donghanhcungban-org/dhcb}"
   git fetch "https://x-access-token:${GITHUB_TOKEN}@github.com/${REPO_NAME}.git" "$BRANCH" --prune --tags
   git checkout -f -B "$BRANCH" FETCH_HEAD
   git reset --hard FETCH_HEAD

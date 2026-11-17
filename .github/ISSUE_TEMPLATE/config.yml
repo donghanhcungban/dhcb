@@ -6,5 +6,5 @@ blank_issues_enabled: false
 # advisories không dùng được cho người ngoài; SECURITY.md còn kênh email dự phòng.
 contact_links:
   - name: Báo lỗ hổng bảo mật (riêng tư)
-    url: https://github.com/seeker19110/dhcb/blob/main/SECURITY.md
+    url: https://github.com/www-donghanhcungban-org/dhcb/blob/main/SECURITY.md
     about: Lộ dữ liệu, bypass thanh toán/gói, chiếm quyền… — báo riêng tư, KHÔNG mở issue công khai (xem SECURITY.md).
