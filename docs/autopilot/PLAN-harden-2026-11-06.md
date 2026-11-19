@@ -19,6 +19,6 @@ production) → HAR-003 (cổng commit trùng) → TEST-001 (bằng chứng red-
 
 ### Lát 2 — 🟢 (nếu còn thời gian, mỗi mục một PR nhỏ)
 
-- [ ] `T-006` AUD-CODE-003: `formatDateVN` trả `—` khi ngày hỏng — Gate: `npx vitest run apps/dhcb/src/lib` (files: apps/dhcb/src/lib/workTaskLabels.ts)
+- [x] `T-006` AUD-CODE-003: `formatDateVN` trả `—` khi ngày hỏng — Gate: `npx vitest run apps/dhcb/src/lib` (files: apps/dhcb/src/lib/workTaskLabels.ts) — Bằng chứng: changelog 0707 (sửa ở apps/dhcb/src/lib/promoEndingBanner.ts, hàm dùng chung)
 - [ ] `T-007` AUD-CI-002: `timeout-minutes` cho job metadata/release — Gate: `python3 .xtemplates/scripts/xt.py ci-check` (files: .github/workflows/pr-policy.yml, .github/workflows/release.yml)
 - [ ] `T-008` AUD-SEC-006 + AUD-DATA-003 + AUD-SEC-007: restore an toàn hơn — Gate: `npx vitest run scripts/restore-pg-from-r2.test.ts` (files: scripts/restore-pg-from-r2.ts, scripts/lib/restoreSafety.ts)

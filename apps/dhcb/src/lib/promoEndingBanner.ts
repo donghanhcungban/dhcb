@@ -45,7 +45,12 @@ export function shouldShowPromoEndingBanner(
 
 // Định dạng ngày dd/mm/yyyy THEO GIỜ VIỆT NAM (nhất quán với vnDateStr() dùng
 // chung toàn app) — tránh lệch ngày nếu trình duyệt người xem ở múi giờ khác.
+//
+// Ngày không hợp lệ → "—" (dữ liệu ngoài: hạn việc, `promoUntil` từ server). `Intl` ném RangeError với
+// ngày hỏng, mà hàm này gọi thẳng trong lúc render → một giá trị xấu làm sập cả trang (AUD-CODE-003).
 export function formatDateVN(iso: string): string {
-  const [y, m, d] = vnDateStr(new Date(iso)).split('-')
+  const date = new Date(iso)
+  if (Number.isNaN(date.getTime())) return '—'
+  const [y, m, d] = vnDateStr(date).split('-')
   return `${d}/${m}/${y}`
 }
