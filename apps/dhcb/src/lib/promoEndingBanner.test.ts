@@ -48,4 +48,11 @@ describe('formatDateVN', () => {
     // 2026-01-01T20:00:00Z = 2026-01-02T03:00:00+07:00 → ngày VN đã sang 02/01
     expect(formatDateVN('2026-01-01T20:00:00Z')).toBe('02/01/2026')
   })
+
+  // AUD-CODE-003: `Intl` ném RangeError("Invalid time value") với ngày hỏng → trước đây làm sập cả
+  // trang Ghi chú/Kanban/banner (code cũ chỉ in "Invalid Date"). Dữ liệu ngoài không đáng làm sập UI.
+  it.each([['bad'], [''], ['2026-13-45T00:00:00Z']])('ngày hỏng %j → "—", không ném lỗi', (iso) => {
+    expect(() => formatDateVN(iso)).not.toThrow()
+    expect(formatDateVN(iso)).toBe('—')
+  })
 })
