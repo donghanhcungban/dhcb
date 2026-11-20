@@ -9,6 +9,10 @@ name: Deploy to VPS
 on:
   push:
     branches: [main]
+    # Chỉ cập nhật workflow vận hành không đổi bản ứng dụng. Chạy deploy thủ công nếu cần.
+    paths-ignore:
+      - '.github/workflows/deploy.yml'
+      - '.github/workflows/vps-readiness.yml'
   workflow_dispatch:
 
 # Nhiều lần push/merge lên main gần nhau → nhiều job deploy có thể được GitHub Actions chạy
