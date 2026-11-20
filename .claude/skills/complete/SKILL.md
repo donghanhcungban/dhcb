@@ -32,6 +32,7 @@ Có `docs/ops/AUDIT-STATUS.md` → dùng sổ đang có, **không audit lại**;
 ## Bước 5 — cổng ký và phát hành (G7)
 
 Stop hook `done` (sau `<XT> loop verify --all`), PR của đợt đã merge →
+
 1. `/audit delta` từ SHA quét gần nhất (xác minh đối kháng 🔴/🟠).
 2. Nợ review (`review_debt`, ADR-0057) trả **theo lô trên diff tích luỹ** từ SHA đó, chia theo file/module, `reviewer-alt` chỉ đọc chạy song song (`LOOP-ORCH-005`); phát hiện có đường tái hiện → sổ. Lượt sau chỉ rà diff của bản sửa; "có từ trước" ngoài diff → sổ (sửa · `chấp nhận` có hạn + D-NNN · `bác bỏ`).
 3. `<XT> release-check --json > F` (F, gói: `$TMPDIR`) → `<XT> loop next-step --objective harden-to-signoff --prs … --release F`: `replan` (FAIL) → PLAN-harden kế, tự duyệt, `loop init` → bước 4; `blocked`/`budget` → dừng, báo; khác → theo `reason`, gọi lại; `signoff-package` → lưu gói (`--package` kiểm hiệu lực) → `GO-NO-GO.md` theo mẫu `<FW>/templates/GO-NO-GO.md` (máy điền phần máy; **người ký** dòng 20 — một lần, ADR-0048; `release_signoff: agent` → sau merge `<XT> release-sign --note …`, ADR-0074) trong PR lát cuối → có sổ giai đoạn: `<XT> stage submit --evidence "<bằng chứng>"` → `<XT> loop stats`, `<XT> feedback collect` → báo cáo ≤ 20 dòng: làm · bằng chứng · D-NNN · còn treo · đề xuất. Sau phát hành giữ `harden` (ADR-0037).
