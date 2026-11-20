@@ -116,3 +116,8 @@ Hệ thống được thiết kế và vận hành xoay quanh các bộ quy chu�
     - Chữ để đọc (`h1-h6`, `p`, `li`, tables, blockquotes) bắt buộc phải đạt độ tương phản **WCAG AAA** (tương phản $\ge$ 7:1).
     - Các thành phần điều hướng/tương tác (buttons, inputs, icons, badges) đạt **WCAG AA**.
     - Tuyệt đối không để xảy ra lỗi a11y lọt qua bộ quét `e2e/a11y.spec.ts` và `e2e/a11y-aaa.spec.ts`.
+
+## /factory
+
+Dùng `/factory <yêu cầu>` để mở hoặc tiếp tục một vòng sản phẩm. Đọc trạng thái bằng
+`python3 .xtemplates/scripts/xt_flow.py --json` rồi chạy các cổng của dự án.
