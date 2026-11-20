@@ -1,0 +1,39 @@
+name: VPS readiness
+on: workflow_dispatch
+
+permissions: {}
+
+jobs:
+  inspect:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require pinned VPS host key
+        env:
+          VPS_SSH_FINGERPRINT: ${{ secrets.VPS_SSH_FINGERPRINT }}
+        run: test -n "$VPS_SSH_FINGERPRINT"
+      - name: Check runtime and application health
+        uses: appleboy/ssh-action@0ff4204d59e8e51228ff73bce53f80d53301dee2 # v1.2.5
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          fingerprint: ${{ secrets.VPS_SSH_FINGERPRINT }}
+          command_timeout: 1m
+          script: |
+            set -eu
+            cd /var/www/dhcb
+            echo "Checkout $(git rev-parse --short=12 HEAD)"
+            if command -v node >/dev/null 2>&1; then node --version; else echo 'node: missing'; fi
+            if command -v npm >/dev/null 2>&1; then npm --version; else echo 'npm: missing'; fi
+            ready=false
+            if command -v node >/dev/null 2>&1 && node -e 'process.exit(Number(process.versions.node.split(".")[0]) >= 24 ? 0 : 1)'; then ready=true; fi
+            for binary in "$HOME"/.nvm/versions/node/v24.*/bin/node /opt/node-v24.*/bin/node; do
+              if [ -x "$binary" ]; then printf 'Installed alternative: '; "$binary" --version; fi
+            done
+            printf 'Deployment runtime meets Node >=24: %s\n' "$ready"
+            status=$(curl --silent --show-error --max-time 8 --noproxy '*' --output /dev/null --write-out '%{http_code}' http://127.0.0.1:3001/api/health)
+            printf 'Local app health HTTP %s\n' "$status"
+            test "$status" = 200
+            test "$ready" = true
